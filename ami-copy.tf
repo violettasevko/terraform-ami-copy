@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-west-2"
+  region = "eu-central-1"
 }
 
 data "aws_ami" "ubuntu" {
@@ -8,7 +8,7 @@ data "aws_ami" "ubuntu" {
 
   filter {
     name   = "name"
-    values = ["ubuntu-minimal/images/hvm-ssd/ubuntu-focal-20.04-*"]
+    values = ["ubuntu-minimal/images/hvm-ssd/ubuntu-focal-22.04-*"]
   }
 
   filter {
@@ -17,15 +17,21 @@ data "aws_ami" "ubuntu" {
   }
 }
 
+
+
+
 resource "aws_ami_copy" "ubuntu_encrypted_ami" {
   name              = "ubuntu-encrypted-ami"
   description       = "An encrypted root ami based off ${data.aws_ami.ubuntu.id}"
   source_ami_id     = data.aws_ami.ubuntu.id
-  source_ami_region = "eu-west-2"
+  source_ami_region = "eu-central-1"
   encrypted         = true
 
   tags = { Name = "ubuntu-encrypted-ami" }
 }
+
+
+
 
 data "aws_ami" "encrypted-ami" {
   most_recent = true
