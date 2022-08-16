@@ -9,7 +9,7 @@ resource "aws_ami_copy" "encrypted_ami" {
   source_ami_region = "eu-central-1"
   encrypted         = true
 
-  tags = { Name = "ubuntu-encrypted-ami" }
+  tags = { Name = "encrypted-ami" }
 }
 
 data "aws_ami" "encrypted-ami" {
