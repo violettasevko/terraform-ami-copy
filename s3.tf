@@ -9,8 +9,6 @@ module "s3_bucket" {
   bucket = local.bucket_name
 
   force_destroy       = true
-  #acceleration_status = "Suspended"
-  #request_payer       = "BucketOwner"
 
     # Note: Object Lock configuration can be enabled only on new buckets
   # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_object_lock_configuration
