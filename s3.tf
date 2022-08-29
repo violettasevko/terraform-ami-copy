@@ -10,9 +10,7 @@ module "s3_bucket" {
 
   force_destroy       = true
 
-    # Note: Object Lock configuration can be enabled only on new buckets
-  # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket_object_lock_configuration
-  object_lock_enabled = false
+   object_lock_enabled = false
 
   # Bucket policies
   # attach_policy                         = true
