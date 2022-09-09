@@ -1,5 +1,5 @@
 locals {
-  bucket_name = "s3-bucket-1"
+  bucket_name = "bucket642167u7"
   region      = "eu-central-1"
 }
 
