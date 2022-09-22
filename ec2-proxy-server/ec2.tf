@@ -13,7 +13,7 @@ module "ec2_instance" {
   associate_public_ip_address = true
 
   root_block_device = [{ 
-    volume_size = 7
+    volume_size = 9
     volume_type = "gp3"
     }]
 }
