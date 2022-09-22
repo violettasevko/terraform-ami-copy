@@ -1,3 +1,7 @@
+variable "ec2_name" {
+    default = "proxy"
+}
+
 variable "region" {
     default = "eu-central-1"
 }
