@@ -7,7 +7,7 @@ variable "region" {
 }
 
 variable "ami_id" {
-  default = "ami-0ceb85bb30095410b"
+  default = "ami-0854da2f8540b70a2" #ami linux arm
 }
 
 variable "instance_type" {
@@ -19,9 +19,9 @@ variable "key_name" {
 }
 
 variable "security_group_id" {
-    default = ["sg-019219fc96bf5722b", "sg-019219fc96bf57227"]
+    default = ["sg-02b61d6a1dde0601c", "sg-0d56587367427f406"] #web+ssh, lb
 }
 
 variable "subnet_id" {
-    default = "subnet-0dc70de3a44db5b70"
+    default = "subnet-0904d41da7cc2ad65" #public 10.60.12.x
 }
