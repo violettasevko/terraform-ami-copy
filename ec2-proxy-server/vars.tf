@@ -23,5 +23,5 @@ variable "security_group_id" {
 }
 
 variable "subnet_id" {
-    default = ""
+    default = "subnet-0dc70de3a44db5b70"
 }
