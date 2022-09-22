@@ -1,0 +1,8 @@
+#!/bin/bash
+sudo amazon-linux-extras install docker -y
+sudo usermod -a -G docker ec2-user
+sudo systemctl start docker
+sudo systemctl status docker
+echo "$(cat nginx-proxy.conf)" > /home/ec2-user/nginx-proxy.conf
+sudo docker run -p 8081:8081 -v /home/ec2-user/nginx-proxy.conf:/etc/nginx/nginx.conf:ro -detach --name nginx nginx
+sudo docker container ps -a
