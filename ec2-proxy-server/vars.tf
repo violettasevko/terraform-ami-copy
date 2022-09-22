@@ -19,7 +19,7 @@ variable "key_name" {
 }
 
 variable "security_group_id" {
-    default = ["sg-02b61d6a1dde0601c", "sg-0d56587367427f406"] #web+ssh, lb
+    default = ["sg-02b61d6a1dde0601c"] #web+ssh
 }
 
 variable "subnet_id" {

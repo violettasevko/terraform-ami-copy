@@ -8,7 +8,7 @@ module "ec2_instance" {
   instance_type          = var.instance_type
   availability_zone      = var.region
   key_name               = var.key_name
-  vpc_security_group_ids = [vars.security_group_id]
+  vpc_security_group_ids = var.security_group_id
   subnet_id              = var.subnet_id
   associate_public_ip_address = true
 
