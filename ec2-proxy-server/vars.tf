@@ -3,7 +3,7 @@ variable "ec2_name" {
 }
 
 variable "region" {
-    default = "eu-central-1b"
+    default = "us-east-1b"
 }
 
 variable "ami_id" {
