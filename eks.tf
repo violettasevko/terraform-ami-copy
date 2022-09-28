@@ -24,7 +24,7 @@ module "eks" {
   }]
 
   vpc_id     = "vpc-1234556abcdef"
-  subnet_ids = ["subnet-abcde012", "subnet-bcde012a", "subnet-fghi345a"]
+  subnet_ids = ["subnet-abcde012"]
 
   # Self Managed Node Group(s)
   self_managed_node_group_defaults = {
