@@ -19,7 +19,7 @@ module "eks" {
   }
 
   cluster_encryption_config = [{
-    provider_key_arn = "arn:aws:kms:eu-west-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+    provider_key_arn = "arn:aws:kms:eu-west-1:55555555:key/1234abcd-12ab-34cd-56ef-1234567890ab"
     resources        = ["secrets"]
   }]
 
@@ -28,7 +28,7 @@ module "eks" {
 
   # Self Managed Node Group(s)
   self_managed_node_group_defaults = {
-    instance_type                          = "m6i.large"
+    instance_type                          = "t4g.small"
     update_launch_template_default_version = true
     iam_role_additional_policies = [
       "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
