@@ -51,7 +51,7 @@ module "eks" {
 
         override = [
           {
-            instance_type     = "t3a.middle"
+            instance_type     = "t3a.medium"
             weighted_capacity = "1"
           },
           {
@@ -66,7 +66,7 @@ module "eks" {
   # EKS Managed Node Group(s)
   eks_managed_node_group_defaults = {
     disk_size      = 10
-    instance_types = ["t3a.middle", "t3a.middle"]
+    instance_types = ["t3a.medium", "t3a.medium"]
   }
 
   eks_managed_node_groups = {
@@ -76,7 +76,7 @@ module "eks" {
       max_size     = 4
       desired_size = 1
 
-      instance_types = ["t3.middle"]
+      instance_types = ["t3.medium"]
       capacity_type  = "SPOT"
     }
   }
