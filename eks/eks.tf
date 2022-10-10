@@ -28,7 +28,7 @@ module "eks" {
 
   # Self Managed Node Group(s)
   self_managed_node_group_defaults = {
-    instance_type                          = "t4g.small"
+    instance_type                          = "t3a.small"
     update_launch_template_default_version = true
     #iam_role_additional_policies = [
     #  "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
@@ -38,7 +38,7 @@ module "eks" {
   self_managed_node_groups = {
     one = {
       name         = "mixed-1"
-      max_size     = 5
+      max_size     = 4
       desired_size = 2
 
       use_mixed_instances_policy = true
@@ -51,11 +51,11 @@ module "eks" {
 
         override = [
           {
-            instance_type     = "t4g.small"
+            instance_type     = "t3a.middle"
             weighted_capacity = "1"
           },
           {
-            instance_type     = "t4g.small"
+            instance_type     = "t4g.large"
             weighted_capacity = "2"
           },
         ]
@@ -66,17 +66,17 @@ module "eks" {
   # EKS Managed Node Group(s)
   eks_managed_node_group_defaults = {
     disk_size      = 10
-    instance_types = ["t4g.small", "t4g.small"]
+    instance_types = ["t3a.middle", "t3a.middle"]
   }
 
   eks_managed_node_groups = {
     blue = {}
     green = {
       min_size     = 1
-      max_size     = 10
+      max_size     = 4
       desired_size = 1
 
-      instance_types = ["t4g.small"]
+      instance_types = ["t3.middle"]
       capacity_type  = "SPOT"
     }
   }
