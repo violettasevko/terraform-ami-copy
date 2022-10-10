@@ -3,7 +3,7 @@ module "eks" {
   version = "~> 18.0"
 
   cluster_name    = "my-cluster"
-  cluster_version = "1.22"
+  cluster_version = "1.25"
 
   cluster_endpoint_private_access = true
   cluster_endpoint_public_access  = true
@@ -19,20 +19,20 @@ module "eks" {
   }
 
   cluster_encryption_config = [{
-    provider_key_arn = "arn:aws:kms:eu-west-1:55555555:key/1234abcd-12ab-34cd-56ef-1234567890ab"
+    provider_key_arn = "arn:aws:kms:us-east-1:272840860415:key/ea1532c6-e5b1-4ce2-8a59-a2af54596bf6"
     resources        = ["secrets"]
   }]
 
-  vpc_id     = "vpc-1234556abcdef"
-  subnet_ids = ["subnet-abcde012"]
+  vpc_id     = "vpc-00c83a799f74f93ed"
+  subnet_ids = ["subnet-093c431d9db5d8562", "subnet-008f1a536a8623779"]
 
   # Self Managed Node Group(s)
   self_managed_node_group_defaults = {
     instance_type                          = "t4g.small"
     update_launch_template_default_version = true
-    iam_role_additional_policies = [
-      "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
-    ]
+    #iam_role_additional_policies = [
+    #  "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+    #]
   }
 
   self_managed_node_groups = {
@@ -51,11 +51,11 @@ module "eks" {
 
         override = [
           {
-            instance_type     = "m5.large"
+            instance_type     = "t4g.small"
             weighted_capacity = "1"
           },
           {
-            instance_type     = "m6i.large"
+            instance_type     = "t4g.small"
             weighted_capacity = "2"
           },
         ]
@@ -65,8 +65,8 @@ module "eks" {
 
   # EKS Managed Node Group(s)
   eks_managed_node_group_defaults = {
-    disk_size      = 50
-    instance_types = ["m6i.large", "m5.large", "m5n.large", "m5zn.large"]
+    disk_size      = 10
+    instance_types = ["t4g.small", "t4g.small"]
   }
 
   eks_managed_node_groups = {
@@ -76,7 +76,7 @@ module "eks" {
       max_size     = 10
       desired_size = 1
 
-      instance_types = ["t3.large"]
+      instance_types = ["t4g.small"]
       capacity_type  = "SPOT"
     }
   }
@@ -98,32 +98,26 @@ module "eks" {
 
   aws_auth_roles = [
     {
-      rolearn  = "arn:aws:iam::66666666666:role/role1"
-      username = "role1"
+      rolearn  = "arn:aws:iam::272840860415:AWSReservedSSO_AWSAdministratorAccess_5ce20564651f6360/devops"
+      username = "devops"
       groups   = ["system:masters"]
     },
   ]
 
   aws_auth_users = [
     {
-      userarn  = "arn:aws:iam::66666666666:user/user1"
-      username = "user1"
-      groups   = ["system:masters"]
-    },
-    {
-      userarn  = "arn:aws:iam::66666666666:user/user2"
-      username = "user2"
+      userarn  = "arn:aws:iam::272840860415:AWSReservedSSO_AWSAdministratorAccess_5ce20564651f6360/roman"
+      username = "roman"
       groups   = ["system:masters"]
     },
   ]
 
   aws_auth_accounts = [
-    "777777777777",
-    "888888888888",
+    "272840860415",
+    "407165365207",
   ]
 
   tags = {
-    Environment = "dev"
     Terraform   = "true"
   }
 }
