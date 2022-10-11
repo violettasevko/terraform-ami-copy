@@ -24,7 +24,7 @@ module "eks" {
   }]
 
   vpc_id     = "vpc-00c83a799f74f93ed"
-  subnet_ids = ["subnet-058e500f0b866e68b", "subnet-0101545d43a467f5b"] #b, c
+  subnet_ids = ["subnet-008f1a536a8623779", "subnet-083ee30bfe79496ac", "subnet-0101545d43a467f5b", "subnet-058e500f0b866e68b"] #b, c
 
   # Self Managed Node Group(s)
   self_managed_node_group_defaults = {
@@ -70,8 +70,7 @@ module "eks" {
   }
 
   eks_managed_node_groups = {
-    blue = {}
-    green = {
+      green = {
       min_size     = 1
       max_size     = 4
       desired_size = 1
