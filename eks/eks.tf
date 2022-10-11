@@ -87,6 +87,7 @@ module "eks" {
       selectors = [
         {
           namespace = "default"
+          subnets = ["subnet-0101545d43a467f5b", "subnet-058e500f0b866e68b"]
         }
       ]
     }
