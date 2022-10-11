@@ -30,9 +30,9 @@ module "eks" {
   self_managed_node_group_defaults = {
     instance_type                          = "t3a.small"
     update_launch_template_default_version = true
-    #iam_role_additional_policies = [
-    #  "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
-    #]
+    iam_role_additional_policies = [
+      "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+    ]
   }
 
   self_managed_node_groups = {
