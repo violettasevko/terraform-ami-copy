@@ -24,9 +24,7 @@ module "eks" {
     resources        = ["secrets"]
   }]
 
-  vpc_id     = this.vpc_id #"vpc-00c83a799f74f93ed"
-  subnet_ids = ["subnet-0101545d43a467f5b", "subnet-058e500f0b866e68b"] #b, c
-
+  
   # Self Managed Node Group(s)
   self_managed_node_group_defaults = {
     instance_type                          = "t3a.small"
