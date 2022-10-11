@@ -2,7 +2,7 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "~> 18.0"
 
-  cluster_name    = "my-cluster"
+  cluster_name    = "my-eks-cluster"
   cluster_version = "1.23"
 
   cluster_endpoint_private_access = true
@@ -55,7 +55,7 @@ module "eks" {
             weighted_capacity = "1"
           },
           {
-            instance_type     = "t4g.large"
+            instance_type     = "t3.large"
             weighted_capacity = "2"
           },
         ]
