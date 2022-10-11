@@ -114,7 +114,6 @@ module "eks" {
 
   aws_auth_accounts = [
     "272840860415",
-    "407165365207",
   ]
 
   tags = {
