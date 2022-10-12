@@ -102,9 +102,6 @@ module "eks" {
       username = "devops"
       groups   = ["system:masters"]
     },
-  ]
-
-  aws_auth_users = [
     {
       userarn  = "arn:aws:iam::272840860415:AWSReservedSSO_AWSAdministratorAccess_5ce20564651f6360/roman"
       username = "roman"
