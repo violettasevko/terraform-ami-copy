@@ -18,51 +18,10 @@ module "eks" {
     }
   }
 
-#  cluster_encryption_config = [{
-#    provider_key_arn = "arn:aws:kms:us-east-1:272840860415:key/ea1532c6-e5b1-4ce2-8a59-a2af54596bf6"
-#    resources        = ["secrets"]
-#  }]
-
   vpc_id     = "vpc-00c83a799f74f93ed"
   subnet_ids = ["subnet-093c431d9db5d8562", "subnet-008f1a536a8623779", "subnet-083ee30bfe79496ac", "subnet-0a6b97a92f1c071bb", "subnet-058e500f0b866e68b", "subnet-0101545d43a467f5b"] #b, c
 
-  # Self Managed Node Group(s)
-#  self_managed_node_group_defaults = {
-#    instance_type                          = "t3a.small"
-#    update_launch_template_default_version = true
-#    iam_role_additional_policies = [
-#      "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
-#    ]
-#  }
-
-#  self_managed_node_groups = {
-#    one = {
-#      name         = "mixed-1"
-#      max_size     = 4
-#      desired_size = 2
-#
-#      use_mixed_instances_policy = true
-#      mixed_instances_policy = {
-#        instances_distribution = {
-#          on_demand_base_capacity                  = 0
-#          on_demand_percentage_above_base_capacity = 10
-#          spot_allocation_strategy                 = "capacity-optimized"
-#        }
-#
-#        override = [
-#          {
-#            instance_type     = "t3a.medium"
-#            weighted_capacity = "1"
-#          },
-#          {
-#            instance_type     = "t3.large"
-#            weighted_capacity = "2"
-#          },
-#        ]
-#      }
-#    }
-#  }
-
+ 
  # EKS Managed Node Group(s)
   eks_managed_node_group_defaults = {
     disk_size      = 10
@@ -79,19 +38,6 @@ module "eks" {
       capacity_type  = "SPOT"
     }
   }
-
-  # Fargate Profile(s)
-#  fargate_profiles = {
-#    default = {
-#      name = "default"
-#      selectors = [
-#        {
-#          namespace = "default"
-#          subnets = ["subnet-0101545d43a467f5b", "subnet-058e500f0b866e68b"]
-#        }
-#      ]
-#    }
-#  }
 
   # aws-auth configmap
   manage_aws_auth_configmap = true
@@ -143,19 +89,6 @@ module "eks" {
       capacity_type  = "SPOT"
     }
   }
-
-  # Fargate Profile(s)
-#  fargate_profiles = {
-#    default = {
-#      name = "default"
-#      selectors = [
-#        {
-#          namespace = "default"
-#          subnets = ["subnet-0101545d43a467f5b", "subnet-058e500f0b866e68b"]
-#        }
-#      ]
-#    }
-#  }
 
   # aws-auth configmap
   manage_aws_auth_configmap = true
