@@ -30,9 +30,9 @@ module "eks" {
 
   eks_managed_node_groups = {
       green = {
-      min_size     = 1
+      min_size     = 2
       max_size     = 4
-      desired_size = 1
+      desired_size = 2
 
       instance_types = ["t3.small", "t3a.small", "t3.medium", "t3a.medium"]
       capacity_type  = "SPOT"
