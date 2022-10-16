@@ -24,7 +24,7 @@ module "eks" {
     resources        = ["secrets"]
   }]
 
-  subnet_ids = ["subnet-0101545d43a467f5b", "subnet-058e500f0b866e68b"] #b, c
+  subnet_ids = var.subnet_ids
 
   # Self Managed Node Group(s)
   self_managed_node_group_defaults = {
