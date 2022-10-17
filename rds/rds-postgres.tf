@@ -32,7 +32,7 @@ module "db" {
   # DB parameter group
   family = "postgres11"
 
-  option_group_name = "prod-instance-postgresql-11.0"
+  #option_group_name = "prod-instance-postgresql-11.0"
 
   # Database Deletion Protection
   deletion_protection = false
