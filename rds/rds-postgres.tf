@@ -5,7 +5,7 @@ module "db" {
 
   engine            = "postgres"
   engine_version    = "11.16"
-  instance_class    = "db.t4g.micro"
+  instance_class    = "db.t3.micro"
   allocated_storage = 200
   db_name  = "kong"
   username = "kong_user"
@@ -21,8 +21,6 @@ module "db" {
   maintenance_window = "Mon:00:00-Mon:03:00"
   backup_window      = "03:00-06:00"
 
-  # Enhanced Monitoring - see example for details on how to create the role
-  # by yourself, in case you don't want to create it automatically
   monitoring_interval = "30"
   monitoring_role_name = "MyRDSMonitoringRole"
   create_monitoring_role = true
@@ -34,7 +32,7 @@ module "db" {
   # DB parameter group
   family = "postgres11"
 
-  option_group_name = "prod-instance-postgresql-11.0"
+  option_group_name = "prod-instance-postgresql-11.16"
 
   # Database Deletion Protection
   deletion_protection = false
