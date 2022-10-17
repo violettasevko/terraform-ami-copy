@@ -24,7 +24,7 @@ module "db" {
   maintenance_window = "Mon:00:00-Mon:03:00"
   backup_window      = "03:00-06:00"
 
-  performance_insights_enabled = true
+  performance_insights_enabled = false
   monitoring_interval = "30"
   monitoring_role_name = "MyRDSMonitoringRole"
   create_monitoring_role = true
