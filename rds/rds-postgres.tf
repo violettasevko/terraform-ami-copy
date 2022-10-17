@@ -13,7 +13,6 @@ module "db" {
   storage_type = "gp2"
   publicly_accessible = false
   port     = "3306"
-  allow_major_version_upgrade = true
 
   iam_database_authentication_enabled = true
 
