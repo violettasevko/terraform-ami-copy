@@ -15,7 +15,7 @@ module "db" {
   publicly_accessible = false
   port     = "5432"
   availability_zone = "us-east-1a"
-  network_type = "dual-stack"
+  network_type = "dual"
   
   iam_database_authentication_enabled = false
 
