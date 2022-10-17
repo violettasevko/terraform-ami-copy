@@ -6,7 +6,8 @@ module "db" {
   engine            = "postgres"
   engine_version    = "11.16"
   instance_class    = "db.t3.micro"
-  allocated_storage = 200
+  allocated_storage = 20
+  max_allocated_storage = 30
   db_name  = "kong"
   username = "kong_user"
   password = "12345678"
@@ -17,13 +18,14 @@ module "db" {
   network_type = "dual-stack"
   create_db_subnet_group = true
 
-  iam_database_authentication_enabled = true
+  iam_database_authentication_enabled = false
 
   vpc_security_group_ids = ["sg-0478c47b099b48f8e"]
 
   maintenance_window = "Mon:00:00-Mon:03:00"
   backup_window      = "03:00-06:00"
 
+  performance_insights_enabled = true
   monitoring_interval = "30"
   monitoring_role_name = "MyRDSMonitoringRole"
   create_monitoring_role = true
@@ -34,9 +36,7 @@ module "db" {
 
   # DB parameter group
   family = "postgres11"
-
-  #option_group_name = "prod-instance-postgresql-11.0"
-
+  
   # Database Deletion Protection
   deletion_protection = false
 
