@@ -12,7 +12,10 @@ module "db" {
   password = "12345678"
   storage_type = "gp2"
   publicly_accessible = false
-  port     = "3306"
+  port     = "5432"
+  availability_zone = "us-east-1a"
+  network_type = "dual-stack"
+  create_db_subnet_group = true
 
   iam_database_authentication_enabled = true
 
