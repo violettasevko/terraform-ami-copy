@@ -16,8 +16,7 @@ module "db" {
   port     = "5432"
   availability_zone = "us-east-1a"
   network_type = "dual-stack"
-  create_db_subnet_group = true
-
+  
   iam_database_authentication_enabled = false
 
   vpc_security_group_ids = ["sg-0478c47b099b48f8e"]
