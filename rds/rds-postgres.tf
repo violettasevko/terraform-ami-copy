@@ -1,7 +1,7 @@
 module "db" {
   source  = "terraform-aws-modules/rds/aws"
 
-  identifier = "kong-pg13"
+  identifier = "kong-pg11"
 
   engine            = "postgres"
   engine_version    = "11.16"
