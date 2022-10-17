@@ -1,10 +1,10 @@
 module "db" {
   source  = "terraform-aws-modules/rds/aws"
 
-  identifier = "kong-pg11"
+  identifier = "kong-pg13"
 
   engine            = "postgres"
-  engine_version    = "11"
+  engine_version    = "13.5"
   instance_class    = "db.t4g.micro"
   allocated_storage = 200
   db_name  = "kong"
@@ -32,9 +32,9 @@ module "db" {
   subnet_ids             = ["subnet-083ee30bfe79496ac", "subnet-08ae687f479d6544e", "subnet-0f337252c7baa2b20", "subnet-093c431d9db5d8562", "subnet-0a6b97a92f1c071bb", "subnet-0101545d43a467f5b", "subnet-008f1a536a8623779", "subnet-0c7a037f62ba336df", "subnet-058e500f0b866e68b"]
 
   # DB parameter group
-  family = "postgres11"
+  family = "postgres13"
 
-  option_group_name = "postgres-11"
+  option_group_name = "postgres-13"
 
   # Database Deletion Protection
   deletion_protection = false
