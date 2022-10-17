@@ -29,8 +29,7 @@ module "db" {
 
   # DB subnet group
   create_db_subnet_group = true
-  subnet_ids             = ["subnet-083ee30bfe79496ac", "subnet-08ae687f479d6544e", "subnet-0f337252c7baa2b20", "subnet-093c431d9db5d8562", "subnet-0a6b97a92f1c071bb", "subnet-0101545d43a467f5b", "subnet-008f1a536a8623779", "
-subnet-0c7a037f62ba336df", "subnet-058e500f0b866e68b"]
+  subnet_ids             = ["subnet-083ee30bfe79496ac", "subnet-08ae687f479d6544e", "subnet-0f337252c7baa2b20", "subnet-093c431d9db5d8562", "subnet-0a6b97a92f1c071bb", "subnet-0101545d43a467f5b", "subnet-008f1a536a8623779", "subnet-0c7a037f62ba336df", "subnet-058e500f0b866e68b"]
 
   # DB parameter group
   family = "postgres11"
