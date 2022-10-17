@@ -1,15 +1,17 @@
 module "db" {
   source  = "terraform-aws-modules/rds/aws"
 
-  identifier = "demodb"
+  identifier = "kong-pg11"
 
   engine            = "postgres"
   engine_version    = "11.16"
   instance_class    = "db.t4g.micro"
-  allocated_storage = 20
-
-  db_name  = "kong-pg11"
+  allocated_storage = 200
+  db_name  = "kong"
   username = "kong_user"
+  password = "12345678"
+  storage_type = "gp2"
+  publicly_accessible = false
   port     = "3306"
 
   iam_database_authentication_enabled = true
