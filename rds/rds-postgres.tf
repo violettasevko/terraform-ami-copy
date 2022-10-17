@@ -4,7 +4,7 @@ module "db" {
   identifier = "kong-pg11"
 
   engine            = "postgres"
-  engine_version    = "11.16"
+  engine_version    = "11"
   instance_class    = "db.t4g.micro"
   allocated_storage = 200
   db_name  = "kong"
