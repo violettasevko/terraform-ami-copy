@@ -1,6 +1,6 @@
 variable "cluster_name" {
  type    = string
- default = "cluster"
+ default = "cluster1"
 }
 
 variable "cluster_version" {
