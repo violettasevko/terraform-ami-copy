@@ -1,8 +1,8 @@
 locals {
   cluster_name      = "opensearch"
-  #cluster_domain    = "example.com"
-  #saml_entity_id    = "https://sts.windows.net/XXX-XXX-XXX-XXX-XXX/"
-  #saml_metadata_url = "https://login.microsoftonline.com/XXX-XXX-XXX-XXX-XXX/federationmetadata/2007-06/federationmetadata.xml?appid=YYY-YYY-YYY-YYY-YYY"
+  cluster_domain    = "example.com"
+  saml_entity_id    = "https://sts.windows.net/XXX-XXX-XXX-XXX-XXX/"
+  saml_metadata_url = "https://login.microsoftonline.com/XXX-XXX-XXX-XXX-XXX/federationmetadata/2007-06/federationmetadata.xml?appid=YYY-YYY-YYY-YYY-YYY"
 }
 
 data "aws_region" "current" {}

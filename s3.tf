@@ -1,5 +1,5 @@
 locals {
-  bucket_name = "bucket642167u7"
+  bucket_name = "bucket642167"
   region      = "eu-central-1"
 }
 
