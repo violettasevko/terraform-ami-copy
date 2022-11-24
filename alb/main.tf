@@ -5,7 +5,6 @@ resource "aws_lb" "main" {
 
   subnets = data.terraform_remote_state.vpc.outputs.public_subnets #replace
 
-
   tags = {
     Name = "main-alb" #replace
   }
@@ -21,7 +20,7 @@ resource "aws_lb_listener_rule" "backend" {
 
   condition {
     path_pattern {
-      values = ["/api"] #replace
+      values = ["/api"]  #replace
     }
   }
 
@@ -159,7 +158,6 @@ resource "aws_security_group" "alb_sg" {
   }
 
   tags = {
-    Name = "alb-devops" #replace
+    Name = "alb-devops"
   }
-
 }
