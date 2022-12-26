@@ -31,7 +31,6 @@ variable "key_name" {
 variable "security_group_id" {
     description = "Name of key for EC2 instance"
     type        = list(string)
-    default     = "" 
 }
 
 variable "subnet_id" {
