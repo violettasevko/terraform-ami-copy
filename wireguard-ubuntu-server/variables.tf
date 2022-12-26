@@ -30,6 +30,6 @@ variable "security_group_id" {
 
 variable "subnet_id" {
     description = "Name of key for EC2 instance"
-    type        = list(string)
+    type        = string
 }
 
