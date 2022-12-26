@@ -19,7 +19,7 @@ module "db" {
   
   iam_database_authentication_enabled = false
 
-  vpc_security_group_ids = module.security_group.security_group_id  TO dO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  vpc_security_group_ids = module.security_group.security_group_id  #TO dO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
   maintenance_window = "Mon:00:00-Mon:03:00"
   backup_window      = "03:00-06:00"
