@@ -1,14 +1,15 @@
 #! /bin/bash
 sudo apt update
-sudo apt install wireguard
+sudo apt install wireguard -y
 wg genkey | sudo tee /etc/wireguard/private.key
 sudo chmod go= /etc/wireguard/private.key
 sudo cat /etc/wireguard/private.key | wg pubkey | sudo tee /etc/wireguard/public.key
+sudo -s
 sudo echo [Interface] \
 PrivateKey = base64_encoded_private_key_goes_here \
 Address = 10.20.12.1/24, 2600:1f18:417a:8d12::/64 \
 ListenPort = 51820 \
 SaveConfig = true >> /etc/wireguard/wg0.conf
-sudo echo net.ipv4.ip_forward=1 >> /etc/sysctl.conf
-sudo echo net.ipv6.conf.all.forwarding=1 >> /etc/sysctl.conf
+sudo echo net.ipv4.ip_forward=1 | sudo tee /etc/sysctl.conf
+sudo echo net.ipv6.conf.all.forwarding=1 | sudo tee /etc/sysctl.conf
 sudo sysctl -p

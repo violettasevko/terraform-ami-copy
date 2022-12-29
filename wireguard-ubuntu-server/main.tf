@@ -16,4 +16,6 @@ module "ec2_instance" {
     volume_size = 8
     volume_type = "gp3"
     }]
+  
+  user_data = file("wginstall")
 }
