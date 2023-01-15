@@ -6,7 +6,7 @@ resource "aws_lb" "main" {
   subnets = data.terraform_remote_state.vpc.outputs.public_subnets #replace
 
   tags = {
-    Name = "main-alb" #replace
+    Name = "main-alb"  #replace
   }
 }
 
