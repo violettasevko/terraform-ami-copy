@@ -6,9 +6,9 @@ resource "aws_lb" "main" {
   subnets = data.terraform_remote_state.vpc.outputs.public_subnets #replace
 
   tags = { 
-    Name = "main-alb"  #replace
+    Name = "main-alb" #replace
   }
-}
+} 
 
 resource "aws_lb_listener_rule" "backend" {
   listener_arn = aws_lb_listener.api.arn
