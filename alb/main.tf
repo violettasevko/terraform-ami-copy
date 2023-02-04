@@ -7,7 +7,7 @@ resource "aws_lb" "main" {
 
   tags = { 
     Name = "main-alb" #replace
-  }
+  } 
 } 
 
 resource "aws_lb_listener_rule" "backend" {
